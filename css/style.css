@@ -1294,3 +1294,75 @@ main{
 
 /* Largest devices such as desktops (1280px and up) */
 @media only screen and (min-width: 1280px) {}
+
+/* language switch button placed below the audio toggle */
+.toggleLang{
+    position: fixed;
+    top: 92px;                /* below the audio button (adjust if needed) */
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999;
+    font-weight: 700;
+    font-family: var(--primary-font);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+/* small-screen adjustments */
+@media (max-width: 540px){
+    .toggleLang{
+        top: 84px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
+/* control layout variables */
+:root{
+  --ctl-top: 40px;      /* distance from top for first button */
+  --ctl-right: 20px;    /* distance from right edge */
+  --ctl-size: 40px;     /* button width/height */
+  --ctl-gap: 12px;      /* vertical gap between buttons */
+}
+
+/* common fixed control styles */
+.toggleAudio,
+.toggleLang{
+  position: fixed;
+  right: var(--ctl-right);
+  width: var(--ctl-size);
+  height: var(--ctl-size);
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+  font-family: var(--primary-font);
+}
+
+/* stack vertically: toggleAudio is first, toggleLang below it */
+.toggleAudio { top: var(--ctl-top); }
+.toggleLang  { top: calc(var(--ctl-top) + var(--ctl-size) + var(--ctl-gap)); }
+
+/* mobile tweak */
+@media (max-width: 540px){
+  :root{
+    --ctl-top: 32px;
+    --ctl-right: 12px;
+    --ctl-size: 36px;
+    --ctl-gap: 10px;
+  }
+}
