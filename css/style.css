@@ -240,7 +240,10 @@ body {
 }
 
 /* ========= ELEMENT ========== */
-
+.mt-1 { margin-top: 8px !important; }
+.mt-2 { margin-top: 12px !important; }
+.mt-3 { margin-top: 16px !important; } /* use this */
+.mt-4 { margin-top: 24px !important; }
 /* BUTTON */
 .btn {
     display: inline-flex;
@@ -249,7 +252,7 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: var(--transition);
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 6px;
     border: 1px solid transparent;
     background: transparent;
