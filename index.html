@@ -1093,6 +1093,34 @@
 
 
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'993adc1458f4970f',t:'MTc2MTMyMzQzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var a = document.getElementById('audio');
+  if (!a) return;
+  // If audio already playing (rare), do nothing.
+  if (!a.paused) return;
 
+  function startAudio() {
+    a.play().catch(function(){ /* ignore if still blocked */ });
+    removeListeners();
+  }
+  function onKey(e){
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ' || e.key === 'ArrowUp') startAudio();
+  }
+  function removeListeners(){
+    window.removeEventListener('scroll', startAudio);
+    window.removeEventListener('wheel', startAudio);
+    window.removeEventListener('touchstart', startAudio);
+    window.removeEventListener('pointerdown', startAudio);
+    window.removeEventListener('keydown', onKey);
+  }
 
-</body></html>
+  window.addEventListener('scroll', startAudio, { passive: true });
+  window.addEventListener('wheel', startAudio, { passive: true });
+  window.addEventListener('touchstart', startAudio, { passive: true });
+  window.addEventListener('pointerdown', startAudio, { passive: true });
+  window.addEventListener('keydown', onKey, { passive: true });
+});
+</script>
+</body>
+</html>
