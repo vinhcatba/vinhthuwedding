@@ -670,12 +670,22 @@ main{
     font-family: var(--script-font);
 }
 .banner-name {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    /* container for absolute positioning */
+    position: relative;
+    display: inline-block;
+    /* allow absolute children */
+    width: max-content;
+    /* room so names can sit around & */
     font-family: var(--script-font);
-    font-size: var(--biger-size);
+    font-size: clamp(24px, 8vw, 64px);
+    line-height: 1;
     text-align: center;
+}
+.name-top {
+    transform: translateX(clamp(-200px, -17vw, 0px));
+}
+.name-bottom {
+    transform: translateX(clamp(30px, 17vw, 150px));
 }
 .banner-name .groom_name, .banner-name .bride_name {
    font-size: var(--title-fs);
