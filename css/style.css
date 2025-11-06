@@ -3,7 +3,7 @@
     --max-width: 1024px;
     /* color */
     --bg: #f5f5f5;
-    --primary-color: #000000;
+    --primary-color: #ecbcb7;
     --secondary-color:#f9d02d ;
     --text-white: #fff;
     --text-black:#000 ;
@@ -28,7 +28,7 @@
 
     /* font-family */
     --script-font: 'Pinyon Script', cursive;
-    --primary-font: 'Wix Madefor Display', sans-serif; 
+    --primary-font: 'Wix Madefor Display', sans-serif;
     --secondary-font: 'Trirong', serif;
 
     /* section margin and padding */
@@ -340,13 +340,13 @@ body {
 }
 
 .bg_overlay {
-    box-shadow: inset 0 0 0 2000px 
+    box-shadow: inset 0 0 0 2000px
     rgba(0 0 0 /.4);
 }
 
 .kenburns-top {
-    -webkit-animation: kenburns-top 10s ease-out infinite both;
-    animation: kenburns-top 10s ease-out infinite both
+    -webkit-animation: kenburns-top 10s ease-out both;
+    animation: kenburns-top 10s ease-out both
 }
 
 @-webkit-keyframes kenburns-top {
@@ -493,7 +493,7 @@ body {
               animation-timing-function: ease-out;
     }
   }
-  
+
 /* ========= AND ANIMATION ========== */
 
 /* ------------------------------------------------------------------------- */
@@ -519,10 +519,13 @@ main{
     color: var(--primary-color);
 }
 .img_bg {
-
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* center image and preserve aspect ratio while filling the container */
+    background-position: center center !important;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    /* cover = fills while keeping aspect ratio (may crop) */
+    background-origin: content-box;
+    background-clip: border-box;
 }
 .hidden {
     display: none;
@@ -648,7 +651,7 @@ main{
     align-items: center;
     justify-content: center;
     width: 100%;
-   
+
     left: 0;
     color: var(--text-white);
     background-image: linear-gradient(
@@ -667,8 +670,8 @@ main{
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--secondary-font);
-    font-size: var(--title-fs);
+    font-family: var(--script-font);
+    font-size: var(--biger-size);
     text-align: center;
 }
 .banner-name .groom_name, .banner-name .bride_name {
@@ -738,8 +741,8 @@ main{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    
-    
+
+
 }
 .about-media img {
     object-fit: cover;
@@ -809,7 +812,7 @@ main{
     row-gap: 80px;
 }
 .timeline-list::before {
-  
+
 }
 .timeline-item {
     position: relative;
@@ -843,6 +846,7 @@ main{
     object-fit: cover;
     border-radius: 50%;
     max-width: 100%;
+    object-position: center 80%;
 }
 .timeline-body {
     display: grid;
@@ -903,19 +907,19 @@ main{
     border-radius:999px;
     border: 1px solid var(--text-white);
   }
-  
+
   #countdown li span {
     display: block;
     font-size: var(--title-fs);
     font-weight: 600;
     font-family: var(--secondary-font);
   }
-  
+
   #content {
     display: none;
     padding: 1rem;
   }
-  
+
   #content span {
     font-family: var(--script-font);
     font-size: 4rem;
@@ -981,7 +985,7 @@ main{
     max-width: 80px;
 }
 .message-container {
-    
+
     display: grid;
     text-align: center;
     justify-content: center;
@@ -1076,7 +1080,7 @@ main{
 }
 
 .invitation-body {
-    
+
 }
 .invi_time {
     display: flex;
@@ -1261,14 +1265,14 @@ main{
     .about-container {
         grid-template-columns: repeat(2,1fr);
     }
-    
+
     #time-line .section-title{
         font-size: 54px;
     }
     .album-slide .swiper-slide {
-       
+
         width: 30%;
-    
+
       }
 }
 
