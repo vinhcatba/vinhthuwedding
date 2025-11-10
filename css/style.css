@@ -523,7 +523,7 @@ main{
 }
 .img_bg {
     /* center image and preserve aspect ratio while filling the container */
-    background-position: 43% center !important;
+    background-position: 46% center !important; 
     background-repeat: no-repeat;
     background-size: cover !important;
     /* cover = fills while keeping aspect ratio (may crop) */
