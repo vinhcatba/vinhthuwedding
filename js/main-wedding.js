@@ -25,15 +25,15 @@ var swiper1 = new Swiper(".album-slide", {
  Fancybox.bind("[data-fancybox]", {
 
  });
- 
-//AUDIO
-$(".toggleAudio").on("click",function(){
-  $(this).find("i").toggleClass("ri-volume-up-fill")
-  audio = $("#audio")
-  audio[0].paused ? 
-  audio[0].play()
-  : 
-  audio[0].pause();
-  })
+
+// //AUDIO
+// $(".toggleAudio").on("click",function(){
+//   $(this).find("i").toggleClass("ri-volume-up-fill")
+//   audio = $("#audio")
+//   audio[0].paused ?
+//   audio[0].play()
+//   :
+//   audio[0].pause();
+//   })
 
 

@@ -523,7 +523,7 @@ main{
 }
 .img_bg {
     /* center image and preserve aspect ratio while filling the container */
-    background-position: 46% center !important; 
+    background-position: 46% center !important;
     background-repeat: no-repeat;
     background-size: cover !important;
     /* cover = fills while keeping aspect ratio (may crop) */
@@ -1365,4 +1365,34 @@ main{
     --ctl-size: 36px;
     --ctl-gap: 10px;
   }
+}
+
+/* make primary buttons smaller (compact variant) */
+.btn.btn-primary {
+    padding: 6px 10px;        /* smaller padding */
+    font-size: 13px;         /* smaller text */
+    line-height: 1;
+    border-radius: 6px;
+    min-height: 34px;        /* control height */
+    gap: 8px;                /* space between svg and text */
+}
+
+/* shrink SVG inside compact button */
+.btn.btn-primary svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* tighter text for small screens */
+@media (max-width: 540px) {
+    .btn.btn-primary {
+        padding: 6px 8px;
+        font-size: 12px;
+        min-height: 32px;
+    }
+    .btn.btn-primary svg {
+        width: 16px;
+        height: 16px;
+    }
 }

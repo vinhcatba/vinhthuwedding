@@ -1137,6 +1137,42 @@
         window.addEventListener('keydown', onKey, { passive: true });
     });
 </script>
+<script>
+    (function () {
+        const audio = document.getElementById('audio');
+        const btn = document.querySelector('.toggleAudio');
+        if (!audio || !btn) return;
+        const getIcon = () => btn.querySelector('i') || btn;
+
+        function updateIcon() {
+            const i = getIcon();
+            if (!i) return;
+            if (!audio.paused && !audio.muted) {
+                i.classList.add('ri-volume-up-fill');
+                i.classList.remove('ri-volume-mute-fill');
+            } else {
+                i.classList.add('ri-volume-mute-fill');
+                i.classList.remove('ri-volume-up-fill');
+            }
+        }
+
+        // Toggle play / pause on click
+        btn.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.muted = false;
+                audio.play().catch(() => { /* autoplay blocked — user gesture required */ });
+            } else {
+                audio.pause();
+            }
+            updateIcon();
+        });
+
+        // Keep icon in sync with audio state
+        ['play', 'pause', 'volumechange', 'ended'].forEach(ev => audio.addEventListener(ev, updateIcon));
+        // initial sync
+        updateIcon();
+    })();
+</script>
 </body>
 
 </html>
